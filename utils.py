@@ -1,4 +1,4 @@
-
+# mainga tegmang
 
 
 def get_all_currency() -> list:
