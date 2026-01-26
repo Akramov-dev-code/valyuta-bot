@@ -28,6 +28,12 @@ def all_currency_handler(message: Message):
     
     bot.send_message(message.chat.id, text)
 
+@bot.message_handler(commands=["usd"])
+def usd_handler(message: Message):
+    pass
+
+
+
 if __name__ == "__main__":
     print("Bot ishga tushdi")
     bot.infinity_polling()
