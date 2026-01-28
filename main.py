@@ -30,7 +30,7 @@ def all_currency_handler(message: Message):
 
 @bot.message_handler(commands=["usd"])
 def usd_handler(message: Message):
-    price = int(currencies[0][1])
+    price = float(currencies[0][1])
     args = extract_arguments(message.text)
     
     if args and not args.isdigit():
