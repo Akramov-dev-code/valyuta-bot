@@ -14,7 +14,10 @@ currencies = get_all_currency()
 @bot.message_handler(commands=["start"])
 def start_handler(message: Message):
     bot.send_message(message.chat.id, f"Assalomu alaykum {message.from_user.full_name}👋\nMen valyuta botman💰\n/usd - dollar kursi\n/eur - euro kursi\n/rub - rubl kursi\n/all - barchasini ko'rish")
-    
+
+@bot.message_handler(commands=["info"])
+def info(message: Message):
+    bot.send_message(message.chat.id, f"Assalomu alaykum\nbotni to'g'ri ishlatish uchun ko'rsatma\n /usd 50 👈🏻 shu tarzda yozing\n /usd hdsdf❌\n /usd ,.@# ❌")    
 
 @bot.message_handler(commands=["all"])
 def all_currency_handler(message: Message):
@@ -48,8 +51,36 @@ def usd_handler(message: Message):
 
 @bot.message_handler(commands=["eur"])
 def euro(message: Message):
-    pass  
+    price = float(currencies[1][1])
+    args = extract_arguments(message.text)
+    
+    if args and not args.isdigit():
+        bot.send_message(message.chat.id, "Noto'g'ri buyruq!\nMa'lumot uchun /info")
+        return
+    
+    
+    count = 1
+    if args:
+       count = int(args)
+    
+    bot.send_message(message.chat.id, f"{count} 💲 - {count * price} so'm") 
 
+
+@bot.message_handler(commands=["rub"])
+def rubl(message: Message):
+    price = float(currencies[2][1])
+    args = extract_arguments(message.text)
+    
+    if args and not args.isdigit():
+        bot.send_message(message.chat.id, "Noto'g'ri buyruq!\nMa'lumot uchun /info")
+        return
+    
+    
+    count = 1
+    if args:
+       count = int(args)
+    
+    bot.send_message(message.chat.id, f"{count} 💲 - {count * price} so'm") 
 
 if __name__ == "__main__":
     print("Bot ishga tushdi")
