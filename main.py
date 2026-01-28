@@ -32,6 +32,9 @@ def all_currency_handler(message: Message):
 def usd_handler(message: Message):
     pass
 
+@bot.message_handler(commands=["eur"])
+def euro(message: Message):
+    pass  
 
 
 if __name__ == "__main__":

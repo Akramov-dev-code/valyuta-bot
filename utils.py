@@ -1,14 +1,13 @@
-def get_all_currency():
-    return [
-        ("USD", 12650),
-        ("EUR", 13700),
-        ("RUB", 140),
-    ]
 
 
-def get_currency_by_code(code: str):
-    currencies = get_all_currency()
-    for currency in currencies:
-        if currency[0].lower() == code.lower():
-            return currency
-    return None
+
+def get_all_currency() -> list:
+    with open("currency.txt", "r") as file:
+        natija = []
+        data =  file.read()
+        currencies_str = data.split("\n")
+        for currency in currencies_str:
+            if currency:
+                natija.append(currency.split(","))
+
+    return natija
