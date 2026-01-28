@@ -29,7 +29,7 @@ def all_currency_handler(message: Message):
     for currency in currencies:
         text += f"{currency[0]} - {currency[1]} so'm\n"
     
-    bot.send_message(message.chat.id, text)
+    bot.send_message(message.chat.id, f"Barcha valyuta kurslarini ko'rish💰\n{text}")
 
 @bot.message_handler(commands=["usd"])
 def usd_handler(message: Message):
@@ -63,7 +63,7 @@ def euro(message: Message):
     if args:
        count = int(args)
     
-    bot.send_message(message.chat.id, f"{count} 💲 - {count * price} so'm") 
+    bot.send_message(message.chat.id, f"{count} 💶 - {count * price} so'm") 
 
 
 @bot.message_handler(commands=["rub"])
@@ -80,7 +80,7 @@ def rubl(message: Message):
     if args:
        count = int(args)
     
-    bot.send_message(message.chat.id, f"{count} 💲 - {count * price} so'm") 
+    bot.send_message(message.chat.id, f"{count} 🪙 - {count * price} so'm") 
 
 if __name__ == "__main__":
     print("Bot ishga tushdi")
